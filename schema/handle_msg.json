@@ -1,0 +1,110 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "HandleMsg",
+  "anyOf": [
+    {
+      "type": "object",
+      "required": [
+        "register"
+      ],
+      "properties": {
+        "register": {
+          "type": "object",
+          "required": [
+            "address",
+            "label",
+            "private"
+          ],
+          "properties": {
+            "address": {
+              "$ref": "#/definitions/HumanAddr"
+            },
+            "label": {
+              "type": "string"
+            },
+            "private": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "refresh"
+      ],
+      "properties": {
+        "refresh": {
+          "type": "object"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "update_remove_timeout"
+      ],
+      "properties": {
+        "update_remove_timeout": {
+          "type": "object",
+          "required": [
+            "new_timeout"
+          ],
+          "properties": {
+            "new_timeout": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "update_valid_code_id"
+      ],
+      "properties": {
+        "update_valid_code_id": {
+          "type": "object",
+          "required": [
+            "new_code_id"
+          ],
+          "properties": {
+            "new_code_id": {
+              "type": "integer",
+              "format": "uint64",
+              "minimum": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "pass_the_hat_on"
+      ],
+      "properties": {
+        "pass_the_hat_on": {
+          "type": "object",
+          "required": [
+            "new_admin"
+          ],
+          "properties": {
+            "new_admin": {
+              "$ref": "#/definitions/HumanAddr"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "definitions": {
+    "HumanAddr": {
+      "type": "string"
+    }
+  }
+}

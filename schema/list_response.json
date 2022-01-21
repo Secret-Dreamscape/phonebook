@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ListResponse",
+  "type": "object",
+  "required": [
+    "contracts"
+  ],
+  "properties": {
+    "contracts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Contract"
+      }
+    }
+  },
+  "definitions": {
+    "Contract": {
+      "type": "object",
+      "required": [
+        "address",
+        "created_at",
+        "label",
+        "private"
+      ],
+      "properties": {
+        "address": {
+          "$ref": "#/definitions/HumanAddr"
+        },
+        "created_at": {
+          "type": "integer",
+          "format": "uint64",
+          "minimum": 0.0
+        },
+        "label": {
+          "type": "string"
+        },
+        "private": {
+          "type": "boolean"
+        }
+      }
+    },
+    "HumanAddr": {
+      "type": "string"
+    }
+  }
+}

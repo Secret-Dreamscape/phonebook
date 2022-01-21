@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "State",
+  "type": "object",
+  "required": [
+    "admin",
+    "contracts",
+    "remove_after",
+    "valid_code_id"
+  ],
+  "properties": {
+    "admin": {
+      "$ref": "#/definitions/HumanAddr"
+    },
+    "contracts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Contract"
+      }
+    },
+    "remove_after": {
+      "type": "integer",
+      "format": "uint64",
+      "minimum": 0.0
+    },
+    "valid_code_id": {
+      "type": "integer",
+      "format": "uint64",
+      "minimum": 0.0
+    }
+  },
+  "definitions": {
+    "Contract": {
+      "type": "object",
+      "required": [
+        "address",
+        "created_at",
+        "label",
+        "private"
+      ],
+      "properties": {
+        "address": {
+          "$ref": "#/definitions/HumanAddr"
+        },
+        "created_at": {
+          "type": "integer",
+          "format": "uint64",
+          "minimum": 0.0
+        },
+        "label": {
+          "type": "string"
+        },
+        "private": {
+          "type": "boolean"
+        }
+      }
+    },
+    "HumanAddr": {
+      "type": "string"
+    }
+  }
+}
