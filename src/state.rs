@@ -11,7 +11,12 @@ pub struct State {
   pub remove_after: u64,
   pub admin: HumanAddr,
   pub contracts: Vec<Contract>,
-  pub valid_code_id: u64
+  pub stamp_addr: HumanAddr,
+  pub stamp_hash: String,
+  pub game_code_id: u64,
+  pub game_hash: String,
+  pub jackpot_addr: HumanAddr,
+  pub jackpot_hash: String,
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
